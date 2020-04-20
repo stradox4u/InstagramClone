@@ -33,6 +33,8 @@ Route::post('/p', 'PostsController@store');
 
 Route::get('/p/{post}', 'PostsController@show');
 
+Route::delete('/posts/{post}', 'PostsController@destroy');
+
 
 Route::get('/profile/{user}', 'ProfilesController@show')->name('profile.show');
 

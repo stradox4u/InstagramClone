@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use App\User;
 
 class PostsController extends Controller
 {
@@ -51,4 +52,11 @@ class PostsController extends Controller
     public function show(\App\Post $post) {
         return view('posts.show', compact('post'));
     }
+
+    public function destroy(\App\Post $post) {
+        $post->delete();
+        return redirect("/profile/{$post->user->id}");
+        
+    }
+    
 }
