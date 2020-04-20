@@ -20,7 +20,10 @@
             
             </div>
             @can('update', $user->profile)
-                <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+               <div class="d-flex justify-content-between">
+                    <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+                    <a href="/search">Search For Users</a>
+               </div>
             @endcan
 
             <div class="d-flex">
