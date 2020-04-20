@@ -16,9 +16,10 @@ class PostsController extends Controller
     }
 
     public function index() {
+        //dd(User::all()->pluck('id'));
         $data = auth()->user()->following()->pluck('profiles.user_id');
         if($data->isEmpty()) {
-            $users = User::all();
+            $users = User::all()->pluck('id');
         }else { 
             $users = $data;
         }
