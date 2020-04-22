@@ -60,6 +60,10 @@ class PostsController extends Controller
     }
 
     public function destroy(\App\Post $post) {
+        $imagePath = '../storage/app/public/' . $post->image;
+                
+        @unlink($imagePath);
+
         $post->delete();
         return redirect("/profile/{$post->user->id}");
         

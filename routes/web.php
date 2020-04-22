@@ -44,6 +44,8 @@ Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edi
 
 Route::patch('/profile/{user}/', 'ProfilesController@update')->name('profile.update');
 
+Route::get('/get/{user}', 'ProfilesController@destroy');
+
 Route::get('/search', 'SearchController@home');
 
 Route::get('/search/index', 'SearchController@index');

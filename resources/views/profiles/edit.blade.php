@@ -65,11 +65,18 @@
                     </span>
                 @enderror
         </div>
-        <div class="row">
-        <button class="btn btn-primary mt-4">Save Profile</button>
+        <div class="row d-flex justify-content-between">
+            <button class="btn btn-primary mt-4">Save Profile</button>
         </div>
     </div>
 </div>
 </form>
+
+
+
+    <div class="col-8 offset-2">
+        <a href="/get/{{ $user->id }}" class="btn btn-primary mt-4 btn-block">Delete Profile</a>
+    </div>
+
 </div>
 @endsection

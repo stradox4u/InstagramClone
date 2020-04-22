@@ -74,4 +74,31 @@ class ProfilesController extends Controller
         return redirect("/profile/{$user->id}");
 
     }
+
+    public function destroy(User $user) 
+    {
+        //Delete all posts
+        $allPosts = $user->posts->all();
+
+        foreach($allPosts as $post) 
+        {
+            $imagePath = '../storage/app/public/' . $post->image;
+                
+            @unlink($imagePath);
+
+            $post->delete();
+        }
+        //Delete Profile Image from Filesystem
+        if($user->profile->image !== null)
+        {
+            $profileImagePath = '../storage/app/public/' . $user->profile->image;
+            @unlink($profileImagePath);
+        }
+        //Delete User Profile and User Table Entries
+        $user->profile->delete();
+        $user->delete();
+        
+        return redirect('/');
+        
+    }
 }
